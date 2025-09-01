@@ -6,7 +6,20 @@
         <item name="colorPrimaryVariant">@color/primary_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/rectangle_color</item>
+        <item name="android:statusBarColor">@color/primary_color</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="button">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/doppio_one</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    <style name="button.rounded">
+            <item name="android:background">@drawable/rounded_button</item>
+    </style>
+    <style name="button.rounded2">
+        <item name="android:background">@drawable/rounded_button2</item>
     </style>
 </resources>

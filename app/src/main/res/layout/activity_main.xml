@@ -1,13 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.motion.widget.MotionLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    app:layoutDescription="@xml/activity_main_scene">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/writing_space"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_bottom_corners"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttons_section">
 
-</LinearLayout>
+            <View
+                android:id="@+id/rectangle_indicator"
+                android:layout_width="32dp"
+                android:layout_height="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/rectangle_indicator"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/current_calculation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/doppio_one"
+                android:gravity="end"
+                android:paddingHorizontal="24dp"
+                android:textColor="@color/text_color"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toTopOf="@id/rectangle_indicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="37 + 12 + 9 + 44+ 3 - 18 x 46" />
+
+            <TextView
+                android:id="@+id/previous_calculation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:alpha="0.4"
+                android:fontFamily="@font/doppio_one"
+                android:gravity="end"
+                android:paddingHorizontal="24dp"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/current_calculation"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="25 + 12" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttons_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ac_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="AC"
+                app:layout_constraintEnd_toStartOf="@+id/arrow_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/seven_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="7"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/ac_button"
+                app:layout_constraintTop_toBottomOf="@id/ac_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/four_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="4"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/seven_button"
+                app:layout_constraintTop_toBottomOf="@id/seven_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/one_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="1"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/four_button"
+                app:layout_constraintTop_toBottomOf="@id/four_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/plus_mins_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="±"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/one_button"
+                app:layout_constraintTop_toBottomOf="@id/one_button" />
+
+            <ImageButton
+                android:id="@+id/arrow_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:contentDescription="delete"
+                android:src="@drawable/calc_arrow"
+                app:layout_constraintEnd_toStartOf="@+id/modules_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ac_button"
+                app:layout_constraintTop_toTopOf="@id/ac_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/eight_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="8"
+                app:layout_constraintStart_toStartOf="@id/arrow_button"
+                app:layout_constraintTop_toTopOf="@id/seven_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/five_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="5"
+                app:layout_constraintStart_toStartOf="@id/eight_button"
+                app:layout_constraintTop_toTopOf="@id/four_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tow_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="2"
+                app:layout_constraintStart_toStartOf="@id/five_button"
+                app:layout_constraintTop_toTopOf="@id/one_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/zero_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="0"
+                app:layout_constraintStart_toStartOf="@id/tow_button"
+                app:layout_constraintTop_toTopOf="@id/plus_mins_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/modules_button"
+                style="@style/button.rounded2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="%"
+                app:layout_constraintEnd_toStartOf="@+id/divider_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/arrow_button"
+                app:layout_constraintTop_toTopOf="@id/arrow_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/nine_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="9"
+                app:layout_constraintStart_toStartOf="@id/modules_button"
+                app:layout_constraintTop_toTopOf="@id/eight_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sex_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="6"
+                app:layout_constraintStart_toStartOf="@id/nine_button"
+                app:layout_constraintTop_toTopOf="@id/five_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/three_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="3"
+                app:layout_constraintStart_toStartOf="@id/sex_button"
+                app:layout_constraintTop_toTopOf="@id/tow_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/dot_button"
+                style="@style/button.rounded"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="."
+                app:layout_constraintStart_toStartOf="@id/three_button"
+                app:layout_constraintTop_toTopOf="@id/zero_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/divider_button"
+                style="@style/button.rounded2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="/"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/modules_button"
+                app:layout_constraintTop_toTopOf="@id/modules_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/multiplication_button"
+                style="@style/button.rounded2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="x"
+                app:layout_constraintStart_toStartOf="@id/divider_button"
+                app:layout_constraintTop_toTopOf="@id/nine_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/plus_button"
+                style="@style/button.rounded2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="+"
+                app:layout_constraintStart_toStartOf="@id/multiplication_button"
+                app:layout_constraintTop_toTopOf="@id/sex_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mins_button"
+                style="@style/button.rounded2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="-"
+                app:layout_constraintStart_toStartOf="@id/plus_button"
+                app:layout_constraintTop_toTopOf="@id/three_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/equal_button"
+                style="@style/button.rounded2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:text="="
+                app:layout_constraintStart_toStartOf="@id/mins_button"
+                app:layout_constraintTop_toTopOf="@id/dot_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
