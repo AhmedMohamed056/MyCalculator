@@ -7,6 +7,10 @@ android {
     namespace = "com.thechance.mycalculator"
     compileSdk = 36
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.thechance.mycalculator"
         minSdk = 24
