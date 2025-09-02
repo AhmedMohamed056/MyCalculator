@@ -105,7 +105,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun onOperatorClick(operator: String) {
-        if (currentNumber.isEmpty() && firstOperand == null) return
+        if (fullExpression.isNotEmpty() && !fullExpression.last().isDigit()) {
+            fullExpression.delete(fullExpression.length - 3, fullExpression.length)
+            fullExpression.append(" $operator ")
+            currentOperator = operator
+            updateDisplay()
+            return
+        }
 
         if (currentNumber.isNotEmpty()) {
             val num = currentNumber.toString().toDouble()
